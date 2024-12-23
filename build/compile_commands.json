@@ -1,0 +1,32 @@
+[
+{
+  "directory": "E:/Projects/F1 Management/Code/Server/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/RaceServer.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\RaceServer.dir\\src\\controllers\\f1_controller.cpp.obj -c \"E:\\Projects\\F1 Management\\Code\\Server\\src\\controllers\\f1_controller.cpp\"",
+  "file": "E:/Projects/F1 Management/Code/Server/src/controllers/f1_controller.cpp",
+  "output": "CMakeFiles/RaceServer.dir/src/controllers/f1_controller.cpp.obj"
+},
+{
+  "directory": "E:/Projects/F1 Management/Code/Server/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/RaceServer.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\RaceServer.dir\\src\\main.cpp.obj -c \"E:\\Projects\\F1 Management\\Code\\Server\\src\\main.cpp\"",
+  "file": "E:/Projects/F1 Management/Code/Server/src/main.cpp",
+  "output": "CMakeFiles/RaceServer.dir/src/main.cpp.obj"
+},
+{
+  "directory": "E:/Projects/F1 Management/Code/Server/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/RaceServer.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\RaceServer.dir\\src\\models\\Driver.cpp.obj -c \"E:\\Projects\\F1 Management\\Code\\Server\\src\\models\\Driver.cpp\"",
+  "file": "E:/Projects/F1 Management/Code/Server/src/models/Driver.cpp",
+  "output": "CMakeFiles/RaceServer.dir/src/models/Driver.cpp.obj"
+},
+{
+  "directory": "E:/Projects/F1 Management/Code/Server/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/RaceServer.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\RaceServer.dir\\src\\models\\Team.cpp.obj -c \"E:\\Projects\\F1 Management\\Code\\Server\\src\\models\\Team.cpp\"",
+  "file": "E:/Projects/F1 Management/Code/Server/src/models/Team.cpp",
+  "output": "CMakeFiles/RaceServer.dir/src/models/Team.cpp.obj"
+},
+{
+  "directory": "E:/Projects/F1 Management/Code/Server/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/RaceServer.dir/includes_CXX.rsp -g -std=gnu++17 -o CMakeFiles\\RaceServer.dir\\src\\routes\\f1_routes.cpp.obj -c \"E:\\Projects\\F1 Management\\Code\\Server\\src\\routes\\f1_routes.cpp\"",
+  "file": "E:/Projects/F1 Management/Code/Server/src/routes/f1_routes.cpp",
+  "output": "CMakeFiles/RaceServer.dir/src/routes/f1_routes.cpp.obj"
+}
+]
