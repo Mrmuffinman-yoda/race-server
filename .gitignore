@@ -1,2 +1,4 @@
 build/
 crow/
+**.env 
+settings.json

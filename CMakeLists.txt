@@ -33,5 +33,13 @@ set(CMAKE_VERBOSE_MAKEFILE ON)
 # Create the executable
 add_executable(RaceServer ${SOURCES})
 
-# Link Boost, Winsock, and Mswsock libraries
-target_link_libraries(RaceServer ${Boost_LIBRARIES} ws2_32 mswsock)
+# Link Boost libraries
+target_link_libraries(RaceServer PRIVATE ${Boost_LIBRARIES})
+
+# Link pqxx and pq libraries
+target_link_libraries(RaceServer PRIVATE pqxx pq)
+
+# Link Winsock libraries on Windows
+if(WIN32)
+    target_link_libraries(RaceServer PRIVATE ws2_32 mswsock)
+endif()
