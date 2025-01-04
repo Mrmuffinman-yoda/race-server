@@ -3,6 +3,8 @@
 
 #include <string>
 #include <iostream>
+#include <vector>
+// #include <models/Driver.hpp>
 
 class Team {
 public:
@@ -12,7 +14,7 @@ public:
     // Getters
     int getTeamId() const;
     std::string getName() const;
-
+    // std::vector<Team> getDrivers() const; add this later
     // Overload the << operator
     friend std::ostream& operator<<(std::ostream& os, const Team& team);
 
