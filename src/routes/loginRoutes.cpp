@@ -1,6 +1,7 @@
-#include "routes/f1_routes.hpp"
+#include "routes/loginRoutes.hpp"
 #include "models/Driver.hpp"
 #include "models/Team.hpp"
+#include "controllers/SvcLoginDetails.hpp"
 #include <unordered_map>
 #include <memory>
 #include <pqxx/pqxx>
@@ -32,6 +33,39 @@ void setupRoutes(crow::SimpleApp& app) {
             x["error"] = e.what();
         }
         res.write(x.dump());
+        res.end();
+    });
+
+    // Login route
+    CROW_ROUTE(app, "/login").methods("POST"_method)
+    ([](const crow::request& req, crow::response& res) {
+        auto body = crow::json::load(req.body);
+        if (!body) {
+            res.code = 400;
+            res.write("Invalid JSON");
+            res.end();
+            return;
+        }
+
+        std::string username = body["username"].s();
+        std::string hashed_password = body["password"].s();
+
+        SvcLoginDetails loginDetails(username, hashed_password);
+
+        if (loginDetails.verifyLoginDetails()) {
+            std::string token = loginDetails.generateSessionToken();
+            if (!token.empty()) {
+                crow::json::wvalue x;
+                x["token"] = token;
+                res.write(x.dump());
+            } else {
+                res.code = 500;
+                res.write("Failed to generate session token.");
+            }
+        } else {
+            res.code = 401;
+            res.write("Invalid username or password.");
+        }
         res.end();
     });
 }
