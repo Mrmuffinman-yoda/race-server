@@ -5,7 +5,7 @@ Team::Team(int team_id, const std::string& name)
     : team_id(team_id), name(name) {}
 
 // Getters
-int Team::getTeamId() const {
+int Team::getId() const {
     return team_id;
 }
 

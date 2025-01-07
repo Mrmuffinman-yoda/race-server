@@ -28,6 +28,7 @@ void setupRoutes(crow::SimpleApp& app) {
                 x["points"] = r[0]["points"].as<int>();
             } else {
                 x["error"] = "Driver not found.";
+                res.code = 404;
             }
         } catch (const std::exception &e) {
             x["error"] = e.what();
