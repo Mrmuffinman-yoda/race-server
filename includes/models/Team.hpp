@@ -12,7 +12,7 @@ public:
     Team(int team_id, const std::string& name);
 
     // Getters
-    int getTeamId() const;
+    int getId() const;
     std::string getName() const;
     // std::vector<Team> getDrivers() const; add this later
     // Overload the << operator

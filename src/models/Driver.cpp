@@ -11,7 +11,7 @@ std::string Driver::getName() const {
     return name;
 }
 
-int Driver::getDriverId() const{
+int Driver::getId() const{
     return driver_id;
 }
 

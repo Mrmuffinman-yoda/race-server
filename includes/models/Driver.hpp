@@ -14,7 +14,7 @@ public:
     std::string getName() const;
     Team getTeam() const;
     int getPoints() const;
-    int getDriverId() const;
+    int getId() const;
     // Setters
     void setPoints(int points);
 

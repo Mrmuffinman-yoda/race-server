@@ -33,3 +33,20 @@ CREATE TABLE sessions (
     token VARCHAR(256) NOT NULL,
     expires_at TIMESTAMP NOT NULL
 );
+
+CREATE TABLE Cars(
+    id SERIAL PRIMARY KEY,
+    car_name VARCHAR(50) NOT NULL,
+    team_id INT NOT NULL,
+    driver_id INT NOT NULL,
+    b_downforce FLOAT NOT NULL,
+    b_drag_coefficient FLOAT NOT NULL,
+    b_balance_den INT NOT NULL,
+    b_balance_num INT NOT NULL,
+    b_sus_stiff FLOAT NOT NULL,
+    b_engine_HP FLOAT NOT NULL,
+    b_fuel_load FLOAT NOT NULL,
+    estimated_fuel_consumption FLOAT,
+    FOREIGN KEY (team_id) REFERENCES teams(id),
+    FOREIGN KEY (driver_id) REFERENCES drivers(id)
+)
