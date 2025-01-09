@@ -3,6 +3,6 @@
 
 #include <crow.h>
 
-void setupRoutes(crow::SimpleApp& app);
+void loginRoutes(crow::SimpleApp& app);
 
 #endif // LOGIN_ROUTES_HPP
