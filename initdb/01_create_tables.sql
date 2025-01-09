@@ -28,10 +28,10 @@ CREATE TABLE IF NOT EXISTS users (
 );
 
 CREATE TABLE sessions (
-    id SERIAL PRIMARY KEY,
+    token VARCHAR(256) PRIMARY KEY,
     user_id INT REFERENCES users(id),
-    token VARCHAR(256) NOT NULL,
-    expires_at TIMESTAMP NOT NULL
+    expires_at TIMESTAMP NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES users(id)
 );
 
 CREATE TABLE Cars(

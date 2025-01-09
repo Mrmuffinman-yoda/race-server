@@ -1,5 +1,5 @@
 #include <crow.h>
-#include <routes/f1_routes.hpp>
+#include <routes/loginRoutes.hpp>
 
 int main() {
     crow::SimpleApp app;
@@ -7,7 +7,7 @@ int main() {
     // Middleware can be added here
 
     // Setup routes
-    setupRoutes(app);
+    loginRoutes(app);
 
     // Start the server
     app.port(18080).multithreaded().run();
