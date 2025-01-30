@@ -1,0 +1,5 @@
+E001:Service is alive
+E002:Service not alive
+E003:Unauthorized: No session token provided
+E004:Internal server error
+E005:Unknown error
