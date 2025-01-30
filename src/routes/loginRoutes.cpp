@@ -1,7 +1,7 @@
 #include "routes/loginRoutes.hpp"
 #include "models/Driver.hpp"
 #include "models/Team.hpp"
-#include "controllers/SvcLoginDetails.hpp"
+#include "controllers/SvcAuthentication.hpp"
 #include <unordered_map>
 #include <memory>
 #include <pqxx/pqxx>
@@ -73,7 +73,7 @@ void loginRoutes(crow::SimpleApp& app) {
         std::string username = body["username"].s();
         std::string hashed_password = body["password"].s();
 
-        SvcLoginDetails loginDetails(username, hashed_password);
+        SvcAuthentication loginDetails(username, hashed_password);
 
         if (loginDetails.verifyLoginDetails()) {
             std::string token = loginDetails.generateSessionToken();
