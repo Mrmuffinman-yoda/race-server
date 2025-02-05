@@ -1,7 +1,7 @@
 FROM alpine:latest
 
 # Install dependencies
-RUN apk add --no-cache g++ cmake make boost-dev asio-dev git postgresql-dev
+RUN apk add g++ cmake make boost-dev asio-dev git postgresql-dev curl-dev
 
 # Set working directory
 WORKDIR /app
@@ -17,6 +17,19 @@ RUN git clone https://github.com/jtv/libpqxx.git && \
 
 # Clone Crow repository
 RUN git clone https://github.com/CrowCpp/Crow.git crow
+
+# Install Google Test from source
+RUN git clone https://github.com/google/googletest.git && \
+    cd googletest && \
+    cmake -S . -B build && \
+    cmake --build build && \
+    cmake --install build && \
+    cd .. && \
+    rm -rf googletest
+
+# Download nlohmann/json header file
+RUN mkdir -p /app/includes/nlohmann && \
+    wget -O /app/includes/nlohmann/json.hpp https://github.com/nlohmann/json/releases/download/v3.10.5/json.hpp
 
 # Copy project files
 COPY . /app
@@ -36,5 +49,5 @@ RUN ls -la /app/build
 # Expose the application port
 EXPOSE 18080
 
-# Run the application
+# Default command
 CMD ["./RaceServer"]

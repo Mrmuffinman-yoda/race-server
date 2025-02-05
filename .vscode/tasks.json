@@ -1,15 +1,15 @@
 {
-  "version": "2.0.0",
-  "tasks": [
-    {
-      "label": "Run build.bat",
-      "type": "shell",
-      "command": "${workspaceFolder}/docker.bat",
-      "group": {
-        "kind": "build",
-        "isDefault": true
-      },
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Run build.bat",
+            "type": "shell",
+            "command": "${workspaceFolder}/docker.bat",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
       "problemMatcher": []
-    }
-  ]
+        }
+    ]
 }

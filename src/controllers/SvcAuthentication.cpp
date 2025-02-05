@@ -1,29 +1,29 @@
-#include "controllers/SvcLoginDetails.hpp"
+#include "controllers/SvcAuthentication.hpp"
 #include <pqxx/pqxx>
 #include <iostream>
 #include <random>
 #include <chrono>
 #include "db_config.hpp"
 
-SvcLoginDetails::SvcLoginDetails(const std::string& username, const std::string& hashed_password) {
+SvcAuthentication::SvcAuthentication(const std::string& username, const std::string& hashed_password) {
     // Constructor implementation
     // Initialize username and password with the provided values
     m_username = username;
     m_password = hashed_password;
 }
 
-SvcLoginDetails::~SvcLoginDetails(void) {
+SvcAuthentication::~SvcAuthentication(void) {
     // Destructor implementation
     // Clean up resources if necessary
 }
 
-void SvcLoginDetails::getLoginDetails(std::string& username, std::string& password) const {
+void SvcAuthentication::getLoginDetails(std::string& username, std::string& password) const {
     // Get the username and password
     username = m_username;
     password = m_password;
 }
 
-bool SvcLoginDetails::verifyLoginDetails() const {
+bool SvcAuthentication::verifyLoginDetails() const {
     try {
         pqxx::connection conn(DBConfig::getConnectionString());
         pqxx::work txn(conn);
@@ -43,7 +43,7 @@ bool SvcLoginDetails::verifyLoginDetails() const {
     return false;
 }
 
-std::string SvcLoginDetails::generateSessionToken() const {
+std::string SvcAuthentication::generateSessionToken() const {
     // Generate a random session token
     std::random_device rd;
     std::mt19937 gen(rd());
@@ -79,4 +79,25 @@ std::string SvcLoginDetails::generateSessionToken() const {
     }
 
     return token;
+}
+
+bool SvcAuthentication::isValidSessionToken(const std::string& token){
+    try {
+        pqxx::connection conn(DBConfig::getConnectionString());
+        pqxx::work txn(conn);
+
+        // Prepare the SQL statement
+        std::string query = "SELECT COUNT(*) FROM sessions WHERE token = " + txn.quote(token) + " AND expires_at > NOW()";
+        pqxx::result r = txn.exec(query);
+
+        // Check if the token is valid
+        if (r.size() == 1 && r[0][0].as<int>() > 0) {
+            return true;
+        }
+    } catch (const std::exception &e) {
+        std::cerr << "Database error: " << e.what() << std::endl;
+    }
+
+    return false;
+
 }
