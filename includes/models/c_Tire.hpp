@@ -2,26 +2,34 @@
 #define C_TIRE_HPP
 
 #include <string>
+#include <vector>
+#include "Tire.hpp"
 
+class c_Tire {
+  private:
+    int tire_id; // Unique identifier for the set of tires
+    Tire tire;
+    int age; // Number of laps the tire has been used, 0 = new tire
+    float fl_tire_tmp;
+    float fr_tire_tmp;
+    float rl_tire_tmp;
+    float rr_tire_tmp;
+    float fl_tire_pressure;
+    float fr_tire_pressure;
+    float rl_tire_pressure;
+    float rr_tire_pressure;
 
-class c_Tire{
-    private:
-        int tire_id;                    // Unique identifier for the set of tires
-        std::string color;              // Doesn't change during race, 
-        int psi;                        // Initial pressure in the tire currently
-        int recommended_psi;            // Recommended pressure for the tire
-        bool wet;                       // If its wet tire or not
-        int age;                        // Number of laps the tire has been used, 0 = new tire
-        int degredation;                // Degredation of the tire, the amount of wear the tire takes per lap
-        float coefficientOfFriction;    // Coefficient of friction of the tire
-    public:
-        c_Tire(int tire_id, std::string color, int psi, int recommended_psi, bool wet, int age, int degredation, float coefficientOfFriction);
-        int getDurability() const;
-        std::string getColor() const;
-        int getPsi() const;
-        bool getWet() const;
-        bool isUsed() const;
-        int getAge() const;
+  public:
+    c_Tire(int tire_id, Tire tire, int age, float fl_tire_tmp,
+           float fr_tire_tmp, float rl_tire_tmp, float rr_tire_tmp,
+           float fl_tire_pressure, float fr_tire_pressure,
+           float rl_tire_pressure, float rr_tire_pressure);
+    int getTireId() const;
+    Tire getTire() const;
+    int getAge() const;
+    // return values should be in the order FL, FR, RL, RR
+    std::vector<float> getTireTemps() const;
+    std::vector<float> getTirePressures() const;
 };
 
 #endif // C_TIRE_HPP

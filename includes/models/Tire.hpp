@@ -3,18 +3,19 @@
 
 #include <string>
 
+class Tire {
+  private:
+    std::string tire_type_id;
+    float max_pressure;
+    float min_pressure;
+    bool is_wet;
 
-class Tire{
-    private:
-        std::string tire_type_id;
-        float max_pressure;
-        float min_pressure;
-        bool is_wet;
-    public:
-        Tire(std::string tire_type_id, float max_pressure, float min_pressure);
-        std::string getTireTypeId() const;
-        float getMaxPressure() const;
-        float getMinPressure() const;
+  public:
+    Tire(std::string tire_type_id, float max_pressure, float min_pressure);
+    std::string getTireTypeId() const;
+    float getMaxPressure() const;
+    float getMinPressure() const;
+    bool isWet() const;
 };
 
 #endif // TIRE_HPP

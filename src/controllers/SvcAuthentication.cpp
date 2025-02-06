@@ -3,7 +3,7 @@
 #include <iostream>
 #include <random>
 #include <chrono>
-#include "db_config.hpp"
+#include "DBConfig.hpp"
 
 SvcAuthentication::SvcAuthentication(const std::string& username, const std::string& hashed_password) {
     // Constructor implementation

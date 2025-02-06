@@ -4,8 +4,9 @@
 #include <string>
 #include <ctime>
 #include "Team.hpp"
+#include "BaseModel.hpp"
 
-class Driver {
+class Driver : public BaseModel {
 public:
     // Constructor
     Driver(int driver_id, const std::string& name, const Team& team, int points);
@@ -14,9 +15,11 @@ public:
     std::string getName() const;
     Team getTeam() const;
     int getPoints() const;
-    int getId() const;
+    int getId() const override;
     // Setters
     void setPoints(int points);
+
+    static Driver getDriverById(int driver_id);
 
 private:
     std::string name;
