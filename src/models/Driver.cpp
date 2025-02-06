@@ -4,14 +4,15 @@
 
 // Constructor
 Driver::Driver(int id, const std::string& name, const Team& team, int points)
-    : driver_id(id) ,name(name), team(team), points(points){}
+    : driver_id(id), name(name), team(team), points(points) {
+}
 
 // Getters
 std::string Driver::getName() const {
     return name;
 }
 
-int Driver::getId() const{
+int Driver::getId() const {
     return driver_id;
 }
 
@@ -23,9 +24,7 @@ int Driver::getPoints() const {
     return points;
 }
 
-
 // Setters
-
 
 void Driver::setPoints(int points) {
     this->points = points;

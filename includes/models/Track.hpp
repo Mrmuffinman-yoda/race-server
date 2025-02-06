@@ -1,9 +1,10 @@
 #include <string>
 
-class Track{
-public:
+class Track {
+  public:
     // Constructor
-    Track(int track_id, const std::string& name, int length, int laps, std::string location);
+    Track(int track_id, const std::string& name, int length, int laps,
+          std::string location);
 
     // Getters
     int getTrackId() const;
@@ -20,10 +21,10 @@ public:
     // Overload the << operator
     friend std::ostream& operator<<(std::ostream& os, const Track& track);
 
-private:
-    int track_id;                   // Unique identifier for the track
-    std::string name;               // Name of the track
-    int length;                     // Length of the track in meters
-    int laps;                       // Number of laps in
+  private:
+    int track_id;     // Unique identifier for the track
+    std::string name; // Name of the track
+    int length;       // Length of the track in meters
+    int laps;         // Number of laps in
     std::string location;
 };

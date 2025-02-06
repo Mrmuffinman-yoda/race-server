@@ -1,15 +1,16 @@
 #ifndef DRIVER_HPP
 #define DRIVER_HPP
 
-#include <string>
 #include <ctime>
-#include "Team.hpp"
+#include <string>
 #include "BaseModel.hpp"
+#include "Team.hpp"
 
 class Driver : public BaseModel {
-public:
+  public:
     // Constructor
-    Driver(int driver_id, const std::string& name, const Team& team, int points);
+    Driver(int driver_id, const std::string& name, const Team& team,
+           int points);
 
     // Getters
     std::string getName() const;
@@ -21,7 +22,7 @@ public:
 
     static Driver getDriverById(int driver_id);
 
-private:
+  private:
     std::string name;
     Team team;
     int points;

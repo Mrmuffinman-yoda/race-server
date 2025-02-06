@@ -1,13 +1,13 @@
 #ifndef TEAM_HPP
 #define TEAM_HPP
 
-#include <string>
 #include <iostream>
+#include <string>
 #include <vector>
 // #include <models/Driver.hpp>
 
 class Team {
-public:
+  public:
     // Constructor
     Team(int team_id, const std::string& name);
 
@@ -18,7 +18,7 @@ public:
     // Overload the << operator
     friend std::ostream& operator<<(std::ostream& os, const Team& team);
 
-private:
+  private:
     int team_id;
     std::string name;
 };

@@ -1,0 +1,80 @@
+# Use the LLVM coding style as the base
+BasedOnStyle: LLVM
+
+# Set the column limit for wrapping lines
+ColumnLimit: 80
+
+# Indentation settings
+IndentWidth: 4
+TabWidth: 4
+UseTab: Never
+
+# Align consecutive assignments
+AlignConsecutiveAssignments: true
+
+# Align trailing comments
+AlignTrailingComments: true
+
+# Break before braces
+BreakBeforeBraces: Attach
+
+# Allow short functions on a single line
+AllowShortFunctionsOnASingleLine: InlineOnly
+
+# Space before and after operators
+SpaceBeforeParens: ControlStatements
+SpacesInParentheses: false
+SpacesInSquareBrackets: false
+SpacesInAngles: false
+SpaceInEmptyParentheses: false
+
+# Pointer and reference alignment
+PointerAlignment: Left
+
+# Include sorting
+SortIncludes: true
+
+# Reflow comments
+ReflowComments: true
+
+# Keep empty lines at the start of blocks
+KeepEmptyLinesAtTheStartOfBlocks: false
+
+# Insert trailing commas in container literals
+Cpp11BracedListStyle: true
+
+# Control the formatting of namespaces
+NamespaceIndentation: None
+
+# Control the formatting of includes
+IncludeBlocks: Preserve
+IncludeCategories:
+  - Regex:           '^<.*\.h>'
+    Priority:        1
+  - Regex:           '^<.*'
+    Priority:        2
+  - Regex:           '.*'
+    Priority:        3
+
+# Control the formatting of macros
+IndentPPDirectives: AfterHash
+
+# Control the formatting of lambdas
+LambdaBodyIndentation: Signature
+
+# Control the formatting of function declarations and definitions
+AlignAfterOpenBracket: Align
+AlignOperands: true
+BreakConstructorInitializersBeforeComma: false
+BreakConstructorInitializers: BeforeComma
+ConstructorInitializerAllOnOneLineOrOnePerLine: true
+ConstructorInitializerIndentWidth: 4
+
+# Control the formatting of enumerations
+AllowShortEnumsOnASingleLine: true
+
+# Control the formatting of record declarations (structs, classes, unions)
+AllowShortBlocksOnASingleLine: true
+AllowShortCaseLabelsOnASingleLine: true
+AllowShortIfStatementsOnASingleLine: true
+AllowShortLoopsOnASingleLine: true

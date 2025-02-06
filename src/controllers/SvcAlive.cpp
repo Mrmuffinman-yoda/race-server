@@ -1,5 +1,5 @@
 #include "controllers/SvcAlive.hpp"
 
-bool SvcAlive::isAlive(){
+bool SvcAlive::isAlive() {
     return SvcAlive::OK;
 }

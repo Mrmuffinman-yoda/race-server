@@ -1,11 +1,9 @@
 #include <string>
 
-class SvcAlive{
-
-public:
+class SvcAlive {
+  public:
     bool isAlive();
 
-private:
+  private:
     bool OK = true;
-  
 };

@@ -4,22 +4,22 @@
 #include "crow.h"
 
 class GenericResponse : public crow::json::wvalue {
-public:
+  public:
     // Constructor
-    GenericResponse(const std::string& status = "success",
-                    int code = 200,
+    GenericResponse(const std::string& status = "success", int code = 200,
                     const std::string& message = "OK") {
         set_default_fields(status, code, message);
     }
 
     // Set default fields
-    void set_default_fields(const std::string& status, int code, const std::string& message) {
-        (*this)["status"] = status;
-        (*this)["code"] = code;
+    void set_default_fields(const std::string& status, int code,
+                            const std::string& message) {
+        (*this)["status"]  = status;
+        (*this)["code"]    = code;
         (*this)["message"] = message;
-        (*this)["data"] = crow::json::wvalue();  // Empty object
-        (*this)["errors"] = crow::json::wvalue(); // Empty object
-        (*this)["meta"] = crow::json::wvalue();   // Empty object
+        (*this)["data"]    = crow::json::wvalue(); // Empty object
+        (*this)["errors"]  = crow::json::wvalue(); // Empty object
+        (*this)["meta"]    = crow::json::wvalue(); // Empty object
     }
 
     // Set status

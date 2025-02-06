@@ -2,7 +2,8 @@
 
 // Constructor
 Team::Team(int team_id, const std::string& name)
-    : team_id(team_id), name(name) {}
+    : team_id(team_id), name(name) {
+}
 
 // Getters
 int Team::getId() const {

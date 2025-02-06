@@ -3,12 +3,11 @@
 #include <string>
 #include "Team.hpp"
 
-class Car{
-public:
+class Car {
+  public:
     int getId() const;
-    
 
-private:
+  private:
     int car_id;
     std::string car_name;
     int team_id;
@@ -22,8 +21,5 @@ private:
     float b_fuel_load;
     float estimated_fuel_consumption;
 };
-
-
-
 
 #endif CAR_HPP
