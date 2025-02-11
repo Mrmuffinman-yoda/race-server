@@ -15,8 +15,20 @@ else()
     message(FATAL_ERROR "Boost not found. Please install Boost and try again.")
 endif()
 
+# Add nlohmann/json
+include_directories(${CMAKE_SOURCE_DIR}/includes)
+
+# Find and include libcurl
+find_package(CURL REQUIRED)
+if(CURL_FOUND)
+    message(STATUS "libcurl found: ${CURL_INCLUDE_DIRS}")
+    include_directories(${CURL_INCLUDE_DIRS})
+else()
+    message(FATAL_ERROR "libcurl not found. Please install libcurl and try again.")
+endif()
+
 # Add source files
-file(GLOB SOURCES "src/*.cpp" "src/controllers/*.cpp" "src/routes/*.cpp" "src/models/*.cpp")
+file(GLOB SOURCES "src/*.cpp" "src/controllers/*.cpp" "src/routes/*.cpp" "src/models/*.cpp" "includes/*.cpp")
 
 # Add include directories
 include_directories(${CMAKE_SOURCE_DIR}/src)
@@ -38,6 +50,9 @@ target_link_libraries(RaceServer PRIVATE ${Boost_LIBRARIES})
 
 # Link pqxx and pq libraries
 target_link_libraries(RaceServer PRIVATE pqxx pq)
+
+# Link libcurl
+target_link_libraries(RaceServer PRIVATE ${CURL_LIBRARIES})
 
 # Link Winsock libraries on Windows
 if(WIN32)

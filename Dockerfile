@@ -41,7 +41,7 @@ RUN rm -rf build && mkdir build
 WORKDIR /app/build
 
 # Build the project
-RUN cmake -G "Unix Makefiles" -DCMAKE_C_COMPILER=gcc -DCMAKE_CXX_COMPILER=g++ .. && make
+RUN cmake -G "Unix Makefiles" -DCMAKE_C_COMPILER=gcc -DCMAKE_CXX_COMPILER=g++ .. && make -j$(nproc)
 
 # List build directory contents
 RUN ls -la /app/build

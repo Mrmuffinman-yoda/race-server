@@ -88,7 +88,7 @@ CREATE TABLE
         fr_tire_pressure FLOAT NOT NULL,
         rl_tire_pressure FLOAT NOT NULL,
         rr_tire_pressure FLOAT NOT NULL,
-        FOREIGN KEY (tires) REFERENCES tires (id)
+        FOREIGN KEY (tire) REFERENCES tires (id)
     );
 
 -- C tables are for current/live values --
