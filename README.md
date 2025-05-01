@@ -2,7 +2,7 @@
 
 This project is a REST API server built using the Crow framework, designed to serve Formula 1 data to various user interfaces.
 
-## Project Structure
+## General Project Structure
 
 ```
 race-server
@@ -23,35 +23,35 @@ race-server
 
 1. **Clone the repository:**
    ```
-   git clone https://github.com/yourusername/crow-f1-api-server.git
-   cd crow-f1-api-server
+   git clone https://github.com/Mrmuffinman-yoda/race-server.git
+   cd race-server
    ```
 
 2. **Install dependencies:**
-   Ensure you have CMake and the Crow framework installed.
+   All included, only require docker
+
+3. create .env file and include parameters
+   ```
+   POSTGRES_USER=postgres
+   POSTGRES_PASSWORD=______
+   POSTGRES_DB=______
+   DATABASE_HOST=db
+   DATABASE_PORT=5432
+   DATABASE_NAME=raceserver
+   DATABASE_USER=postgres
+   DATABASE_PASSWORD=_______
+
+   ```
 
 3. **Build the project:**
    ```
-   mkdir build
-   cd build
-   cmake ..
-   make
+   docker compose build
    ```
 
 4. **Run the server:**
    ```
-   ./crow-f1-api-server
+   docker compose up
    ```
 
-## API Usage
 
-- **GET /api/drivers**: Retrieve driver standings.
-- **GET /api/team**: Retrieve driver standings.
 
-## Contributing
-
-Feel free to submit issues or pull requests for improvements or bug fixes.
-
-## License
-
-This project is licensed under the MIT License.
